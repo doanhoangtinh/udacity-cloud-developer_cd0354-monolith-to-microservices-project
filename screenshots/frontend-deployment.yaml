@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udacity-project3-frontend-application
+  labels:
+    app: udacity-project3-frontend-application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: udacity-project3-frontend-application
+  template:
+    metadata:
+      labels:
+        app: udacity-project3-frontend-application
+    spec:
+      containers:
+      - name: udagram-frontend
+        image: tinhdh/udagram-frontend:v2.0.0
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "100"
+          requests:
+            cpu: "100"

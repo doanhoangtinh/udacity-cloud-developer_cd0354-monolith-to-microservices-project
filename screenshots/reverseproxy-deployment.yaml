@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udacity-project3-reverseproxy-application
+  labels:
+    app: udacity-project3-reverseproxy-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udacity-project3-reverseproxy-application
+  template:
+    metadata:
+      labels:
+        app: udacity-project3-reverseproxy-application
+    spec:
+      containers:
+      - name: udagram-reverseproxy
+        image: tinhdh/udagram-reverseproxy:v1.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always

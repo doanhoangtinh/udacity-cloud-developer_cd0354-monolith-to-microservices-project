@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-udacity-project3-reverseproxy-application
+spec:
+  selector:
+    app: udacity-project3-reverseproxy-application
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
