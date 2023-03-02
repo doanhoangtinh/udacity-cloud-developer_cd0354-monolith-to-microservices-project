@@ -63,16 +63,6 @@ spec:
             configMapKeyRef:
               name: conf-env-udacity-project3-application
               key:  URL
-        - name: AWS_ACCESS_KEY_ID
-          valueFrom:
-            secretKeyRef:
-              name: sec-aws-udacity-project3-application
-              key: AWS_ACCESS_KEY_ID
-        - name: AWS_SECRET_ACCESS_KEY
-          valueFrom:
-            secretKeyRef:
-              name: sec-aws-udacity-project3-application
-              key: AWS_SECRET_ACCESS_KEY
         - name: AWS_DEFAULT_REGION
           valueFrom:
               secretKeyRef:
@@ -80,3 +70,12 @@ spec:
                 key: AWS_DEFAULT_REGION
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - name: aws-secret
+          mountPath: "/root/.aws/"
+          readOnly: true
+      restartPolicy: Always
+      volumes:
+      - name: aws-secret
+        secret:
+          secretName: sec-aws-udacity-project3-application

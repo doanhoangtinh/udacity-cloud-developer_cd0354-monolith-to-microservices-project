@@ -6,4 +6,4 @@ metadata:
 data:
   AWS_BUCKET: bk-udacity-project3
   POSTGRES_HOST: rds-udacity.c4atjyv3fbmb.us-east-1.rds.amazonaws.com
-  URL: http://a7df7a75ae1174bffb707b47297c11ae-2008780811.us-west-2.elb.amazonaws.com
+  URL: http://a3ce7b54d8ed347c3b3dced889caa9ff-1370636035.us-west-2.elb.amazonaws.com
